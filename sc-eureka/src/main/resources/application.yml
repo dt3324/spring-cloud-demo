@@ -1,0 +1,13 @@
+server:
+  port: 8762
+eureka:
+  client:
+    # 关闭eureka client
+    # enabled: false
+    # 注册自身到eureka服务器
+    register-with-eureka: false
+    # 表示是否从eureka服务器获取注册信息
+    fetch-registry: false
+    serviceUrl:
+      # 设置eureka服务器所在的地址，可以同时向多个服务注册服务
+      defaultZone: http://127.0.0.1:8762/eureka/

@@ -1,0 +1,12 @@
+server:
+  port: 9200
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8762/eureka  #服务注册地址
+spring:
+  application:
+    name: HYSTRIX-FEIGN
+feign:
+  hystrix:
+    enabled: true  #开启熔断

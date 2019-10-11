@@ -1,0 +1,19 @@
+server:
+  port: 9527
+eureka:
+  client:
+    registerWithEureka: true #注册到Eureka,在注册中心显示
+    service-url:
+      defaultZone: http://localhost:8762/eureka
+  instance:
+    instance-id: gateway-9527 #在eureka上Status显示的名字
+    prefer-ip-address: true  #显示ip
+spring:
+  application:
+    name: ZUUL-GATEWAY #在eureka上application显示的名字
+zuul:
+  routes:
+    wbUser.serviceId: user-provider
+    wbUser.path: /xxx/**  # 匹配 /xxx开头的请求映射到user-provider服务上
+  ignored-services: "*" #user-provider #忽略直接使用服务名访问  *忽略所有的
+  prefix: /aa   # 访问前缀   localhost:9527/aa/xxx/**
